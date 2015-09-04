@@ -1,3 +1,6 @@
+# the executable
+src/mf2005
+
 # Compiled Object files
 *.slo
 *.lo
