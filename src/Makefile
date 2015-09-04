@@ -4,26 +4,18 @@
 #
 PROGRAM = mf2005
 
-CC_MPI_COMPILE_FLAGS = $(shell mpicc --showme:compile)
-CC_MPI_LINK_FLAGS = $(shell mpicc --showme:link)
-
-F90_MPI_COMPILE_FLAGS = $(shell mpif90 --showme:compile)
-F90_MPI_LINK_FLAGS = $(shell mpif90 --showme:link)
-
 # Define the Fortran compile flags
 
-F90FLAGS=$(F90_MPI_COMPILE_FLAGS)
+F90FLAGS=
+F90= gfortran
 #F90= f90
-# F90=gfortran 
-F90=mpif90
 
 # 
 # Define the C compile flags
 # -D_UF defines UNIX naming conventions for mixed language compilation.
 # 
-CFLAGS= -D_UF -O3 $(CC_MPI_COMPILE_FLAGS)
-#CC= gcc
-CC= mpicc
+CFLAGS= -D_UF -O3
+CC= gcc
 
 # Define GMG objects
 #
@@ -35,7 +27,7 @@ GMG = r_vector.o\
 # Define the libraries
 
 SYSLIBS= -lc
-USRLIB  = $(CC_MPI_LINK_FLAGS) $(F90_MPI_LINK_FLAGS) 
+USRLIB  = 
 
 # Define all Fortran object files which make up MODFLOW
 
@@ -97,7 +89,7 @@ all: mf2005
 # Define what mf2005
 
 mf2005: $(OBJECTS) $(GMG)
-	-$(F90) $(F90FLAGS) -o mf2005 $(OBJECTS) $(GMG) $(USRLIB) $(SYSLIBS) 
+	-$(F90) $(F90FLAGS) -o mf2005 $(OBJECTS) $(GMG) $(USRLIB) $(SYSLIBS)
 
 # Object codes
 
