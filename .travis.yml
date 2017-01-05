@@ -1,0 +1,35 @@
+language: c
+sudo: required
+dist: trusty
+services:
+  - docker
+python:
+  - "2.7"
+compiler:
+- gcc
+os:
+- linux
+env:
+  global:
+
+before_install:
+- echo $LANG
+- echo $LC_ALL
+- test -n $CC && unset CC
+before_script:
+- echo "install packages"
+install:
+- echo "make dependencies"
+script:
+- if [ $TRAVIS_OS_NAME == linux ]; then ./build-script.sh; fi
+- cd src && make all
+after_success:
+- echo "make docker"
+branches:
+  only:
+  - master
+  - "/^v\\d+\\./"
+
+notifications:
+  email:
+  - allixender@googlemail.com
