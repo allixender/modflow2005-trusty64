@@ -1,4 +1,4 @@
-## MODFLOW-2005 - Version: 1.11.00
+## MODFLOW-2005 - Version: 1.11.00 [![Build Status](https://travis-ci.org/allixender/modflow2005-trusty64.svg)](https://travis-ci.org/allixender/modflow2005-trusty64)
 
 Three-dimensional finite-difference ground-water flow model
 
@@ -6,7 +6,7 @@ This version has been adjusted (Makefile mainly) to easily compile and run on Ub
 
 Source and documenttion all from USGS: http://water.usgs.gov/ogw/modflow/MODFLOW.html
 
-NOTE: Any use of trade, product or firm names is for descriptive purposes 
+NOTE: Any use of trade, product or firm names is for descriptive purposes
       only and does not imply endorsement by the U.S. Government.
 
 This version of MODFLOW is referred to as MODFLOW-2005 in order to distinguish
@@ -57,6 +57,6 @@ be run using an executable version of MODFLOW that uses the same
 unformatted file structure.
 
 This issue of unformatted files is described here so that users will
-be aware of the possibility of problems caused by unformatted files. 
+be aware of the possibility of problems caused by unformatted files.
 The source file openspec.inc may require modification before compiling
 to cause unformatted files to be written as desired.
