@@ -22,7 +22,7 @@ install:
 - sudo apt-get update
 - sudo apt-get install gfortran gfortran-multilib
 script:
-- if [ $TRAVIS_OS_NAME == linux ]; then ./build-script.sh; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then sudo ./build-script.sh; fi
 - cd src && make all
 after_success:
 - echo "make docker"
