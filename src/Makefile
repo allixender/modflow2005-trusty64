@@ -2,37 +2,33 @@
 
 # Makefile for non-USGS distribution
 #
-PROGRAM = mf2005
+PROGRAM=mf2005
 
 # Define the Fortran compile flags
 
 F90FLAGS=
-F90= gfortran
+F90=gfortran
 #F90= f90
 
-# 
+#
 # Define the C compile flags
 # -D_UF defines UNIX naming conventions for mixed language compilation.
-# 
-CFLAGS= -D_UF -O3
-CC= gcc
+#
+CFLAGS=-D_UF -O3
+CC=gcc
 
 # Define GMG objects
 #
-GMG = r_vector.o\
-      solvers.o\
-      ccfd.o\
-      mf2kgmg.o\
+GMG=r_vector.o solvers.o ccfd.o mf2kgmg.o
 
 # Define the libraries
 
-SYSLIBS= -lc
-USRLIB  = 
+SYSLIBS=-lc
+USRLIB=
 
 # Define all Fortran object files which make up MODFLOW
 
-OBJECTS = \
-        gwf2bas7.o \
+OBJECTS=gwf2bas7.o \
         de47.o \
         pcg7.o \
         sip7.o \
@@ -89,7 +85,7 @@ all: mf2005
 # Define what mf2005
 
 mf2005: $(OBJECTS) $(GMG)
-	-$(F90) $(F90FLAGS) -o mf2005 $(OBJECTS) $(GMG) $(USRLIB) $(SYSLIBS)
+	$(F90) $(F90FLAGS) -o mf2005 $(OBJECTS) $(GMG) $(USRLIB) $(SYSLIBS)
 
 # Object codes
 
