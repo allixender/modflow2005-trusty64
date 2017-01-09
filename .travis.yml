@@ -22,11 +22,11 @@ install:
 - sudo apt-get update
 - sudo apt-get install gfortran gfortran-multilib libquadmath0
 script:
-- cd src && make all; cd ..
-- if [ $TRAVIS_OS_NAME == linux ]; then sudo ./build-script.sh; fi
+- cd src && make all
+  # - if [ $TRAVIS_OS_NAME == linux ]; then sudo ./build-script.sh; fi
 after_success:
 - echo "TODO make flopy modflow test"
-- echo "TODO make docker"
+  # - echo "TODO make docker"
 branches:
   only:
   - master
